@@ -1,0 +1,29 @@
+<!-- FORM LOGIN -->
+<form class="container mt-150" [formGroup]="loginForm">
+  <div class="col-md-12">
+    <h1 style="color: #000; padding-bottom: 10px;">LOGIN</h1>
+    <!-- Input Usuario-->
+    <div class="form-group">
+      <div class="col-md-12 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input formControlName="email" type="text" name="usuario" placeholder="Usuário" required autocomplete="off" />
+        </div>
+      </div>
+    </div>
+    <br><br><br>
+    <!-- Input Senha-->
+    <div class="form-group">
+      <div class="col-md-12 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          <input formControlName="senha" type="password" name="senha" placeholder="Senha" required autocomplete="off" />
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <br><br>
+    <input (click)="signIn()" class="botao" type="submit" value="Entrar">
+    <p *ngIf="erro" class="erro">Usuário ou senha inválidos</p>
+  </div>
+</form>

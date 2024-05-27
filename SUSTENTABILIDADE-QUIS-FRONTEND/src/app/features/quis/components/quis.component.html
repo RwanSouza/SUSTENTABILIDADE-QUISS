@@ -1,0 +1,53 @@
+<mat-tab-group mat-align-tabs="start">
+	<mat-tab label="Pergunta 1">
+		<div class="quis">
+			<label id="example-radio-group-label">1- Para você as previsões dos cientistas sobre as conseqüências do
+				aquecimento global são:</label>
+			<mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+				<mat-radio-button color="primary" class="example-radio-button" *ngFor="let season of seasonsOne" [value]="season">
+					<span class="font-weight-400">
+						{{season}}
+					</span>
+				</mat-radio-button>
+			</mat-radio-group>
+			<button mat-raised-button color="primary" (click)="submit(1)">Enviar</button>
+		</div>
+	</mat-tab>
+	<mat-tab label="Pergunta 2">
+		<div class="quis">
+			<mat-form-field appearance="fill" class="size-height w-full">
+				<mat-label>2- Você sabe o que é sustentabilidade?</mat-label>
+				<textarea matInput></textarea>
+			</mat-form-field>
+		</div>
+		<div class="button-session-2">
+			<button mat-raised-button color="primary">Enviar</button>
+		</div>
+	</mat-tab>
+	<mat-tab label="Pergunta 3">
+		<div class="quis">
+			<mat-form-field appearance="fill" class="size-height w-full">
+				<mat-label>	3- Você já ouviu falar em sustentabilidade no trânsito?</mat-label>
+				<textarea matInput></textarea>
+			</mat-form-field>
+		</div>
+		<div class="button-session-2">
+			<button mat-raised-button color="primary">Enviar</button>
+		</div>
+	</mat-tab>
+	<mat-tab label="Pergunta 4">
+
+	</mat-tab>
+	<mat-tab label="Pergunta 5">
+
+	</mat-tab>
+	<mat-tab label="Pergunta 6">
+
+	</mat-tab>
+	<mat-tab label="Pergunta 7">
+
+	</mat-tab>
+	<mat-tab label="Pergunta 8">
+
+	</mat-tab>
+</mat-tab-group>

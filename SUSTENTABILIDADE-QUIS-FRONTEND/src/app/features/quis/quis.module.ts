@@ -10,6 +10,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
 	declarations: [
@@ -24,7 +27,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 		MatRadioModule,
 		MatButtonModule,
 		MatFormFieldModule,
-		MatInputModule
+		MatInputModule,
+		MatSnackBarModule,
+		MatIconModule
 	],
 	providers: [
 		QuisService

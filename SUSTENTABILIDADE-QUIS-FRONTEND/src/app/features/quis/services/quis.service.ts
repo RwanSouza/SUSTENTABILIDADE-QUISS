@@ -11,12 +11,9 @@ export class QuisService {
 
   constructor(private http: HttpClient) {}
 
-  sendOptionSelected(option: number): Observable<string> {
+  sendOptionSelected(option: number): Observable<any> {
     let token = localStorage.getItem('token');
-    const headers = new HttpHeaders().set(
-      'Authorization',
-      `Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgVENDIiwic3ViIjoiMSIsImlhdCI6MTY2NzUwNDMwNSwiZXhwIjoxNjY3NTkwNzA1fQ.v_aC75dXhhB6-wfCONqmemBsaRuOzBP6VQ51yLeUzWY`
-    );
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     return this.http.get<any>(
       `${this.QUIS_URL}resposta?codPergunta=${option}`,

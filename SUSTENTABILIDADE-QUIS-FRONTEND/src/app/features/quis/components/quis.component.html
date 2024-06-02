@@ -1,53 +1,138 @@
-<mat-tab-group mat-align-tabs="start">
+<mat-tab-group dynamicHeight>
 	<mat-tab label="Pergunta 1">
 		<div class="quis">
 			<label id="example-radio-group-label">1- Para você as previsões dos cientistas sobre as conseqüências do
 				aquecimento global são:</label>
 			<mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
-				<mat-radio-button color="primary" class="example-radio-button" *ngFor="let season of seasonsOne" [value]="season">
+				<mat-radio-button color="primary" class="example-radio-button" *ngFor="let season of seasonsOne"
+					[value]="season" (click)="getAnswerOne(season)">
 					<span class="font-weight-400">
 						{{season}}
 					</span>
 				</mat-radio-button>
 			</mat-radio-group>
-			<button mat-raised-button color="primary" (click)="submit(1)">Enviar</button>
+			<button mat-raised-button color="primary" (click)="submitQuestionOne(1)"
+				[disabled]="questionOnecorrect">Enviar</button>
+			<p class="color-green mt-10" *ngIf="questionOnecorrect">Resposta correta!</p>
+			<p class="color-red mt-10" *ngIf="questionOneTryAgain">Resposta Errada! Tente novamente</p>
 		</div>
 	</mat-tab>
 	<mat-tab label="Pergunta 2">
 		<div class="quis">
 			<mat-form-field appearance="fill" class="size-height w-full">
 				<mat-label>2- Você sabe o que é sustentabilidade?</mat-label>
-				<textarea matInput></textarea>
+				<textarea [disabled]="sendAnswerQuestionTwo" required matInput></textarea>
 			</mat-form-field>
+			<p class="color-green" *ngIf="sendAnswerQuestionTwo">Resposta Enviada com sucesso!</p>
 		</div>
 		<div class="button-session-2">
-			<button mat-raised-button color="primary">Enviar</button>
+			<button mat-raised-button color="primary" [disabled]="sendAnswerQuestionTwo"
+				(click)="submitQuestionTwo(2)">Enviar</button>
 		</div>
 	</mat-tab>
 	<mat-tab label="Pergunta 3">
 		<div class="quis">
 			<mat-form-field appearance="fill" class="size-height w-full">
-				<mat-label>	3- Você já ouviu falar em sustentabilidade no trânsito?</mat-label>
-				<textarea matInput></textarea>
+				<mat-label> 3- Você já ouviu falar em sustentabilidade no trânsito?</mat-label>
+				<textarea [disabled]="sendAnswerQuestionThree" required matInput></textarea>
 			</mat-form-field>
+			<p class="color-green" *ngIf="sendAnswerQuestionThree">Resposta Enviada com sucesso!</p>
 		</div>
 		<div class="button-session-2">
-			<button mat-raised-button color="primary">Enviar</button>
+			<button mat-raised-button color="primary" [disabled]="sendAnswerQuestionThree"
+				(click)="submitQuestionThree(3)">Enviar</button>
 		</div>
 	</mat-tab>
 	<mat-tab label="Pergunta 4">
-
+		<div class="quis">
+			<label id="example-radio-group-label">4- Quais veículos poluem mais?</label>
+			<mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+				<mat-radio-button color="primary" class="example-radio-button" *ngFor="let season of seasonsFour"
+					[value]="season" (click)="getAnswerFour(season)">
+					<span class="font-weight-400">
+						{{season}}
+					</span>
+				</mat-radio-button>
+			</mat-radio-group>
+			<button mat-raised-button color="primary" (click)="submitQuestionFour(4)"
+				[disabled]="questionFourCorrect">Enviar</button>
+			<p class="color-green mt-10" *ngIf="questionFourCorrect">Resposta correta!</p>
+			<p class="color-red mt-10" *ngIf="questionFourTryAgain">Resposta Errada! Tente novamente</p>
+		</div>
 	</mat-tab>
 	<mat-tab label="Pergunta 5">
-
+		<div class="quis">
+			<label id="example-radio-group-label">5- Qual alternativa seria a melhor para tornar o trânsito mais
+				sustentável?</label>
+			<mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+				<mat-radio-button color="primary" class="example-radio-button" *ngFor="let season of seasonsFive"
+					[value]="season" (click)="getAnswerFive(season)">
+					<span class="font-weight-400">
+						{{season}}
+					</span>
+				</mat-radio-button>
+			</mat-radio-group>
+			<button mat-raised-button color="primary" (click)="submitQuestionFive(5)"
+				[disabled]="questionFiveCorrect">Enviar</button>
+			<p class="color-green mt-10" *ngIf="questionFiveCorrect">Resposta correta!</p>
+			<p class="color-red mt-10" *ngIf="questionFiveTryAgain">Resposta Errada! Tente novamente</p>
+		</div>
 	</mat-tab>
 	<mat-tab label="Pergunta 6">
-
+		<div class="quis">
+			<label id="example-radio-group-label">6- Para ir a um local dois quarteirões da sua casa, você utiliza:</label>
+			<mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+				<mat-radio-button color="primary" class="example-radio-button" *ngFor="let season of seasonsSix"
+					[value]="season" (click)="getAnswerSix(season)">
+					<span class="font-weight-400">
+						{{season}}
+					</span>
+				</mat-radio-button>
+			</mat-radio-group>
+			<button mat-raised-button color="primary" (click)="submitQuestionSix(6)"
+				[disabled]="questionSixCorrect">Enviar</button>
+			<p class="color-green mt-10" *ngIf="questionSixCorrect">Resposta correta!</p>
+			<p class="color-red mt-10" *ngIf="questionSixTryAgain">Resposta Errada! Tente novamente</p>
+		</div>
 	</mat-tab>
 	<mat-tab label="Pergunta 7">
-
+		<div class="quis">
+			<label id="example-radio-group-label">7- Para você o que significa ser sustentável no trânsito?</label>
+			<mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+				<mat-radio-button color="primary" class="example-radio-button" *ngFor="let season of seasonsSeven"
+					[value]="season" (click)="getAnswerSeven(season)">
+					<span class="font-weight-400">
+						{{season}}
+					</span>
+				</mat-radio-button>
+			</mat-radio-group>
+			<button mat-raised-button color="primary" (click)="submitQuestionSeven(7)"
+				[disabled]="questionSevenCorrect">Enviar</button>
+			<p class="color-green mt-10" *ngIf="questionSevenCorrect">Resposta correta!</p>
+			<p class="color-red mt-10" *ngIf="questionSevenTryAgain">Resposta Errada! Tente novamente</p>
+		</div>
 	</mat-tab>
 	<mat-tab label="Pergunta 8">
-
+		<div class="quis">
+			<label id="example-radio-group-label">8- Qual das frases sobre sustentabilidade está correta:</label>
+			<mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+				<mat-radio-button color="primary" class="example-radio-button" *ngFor="let season of seasonsEight"
+					[value]="season" (click)="getAnswerEight(season)">
+					<span class="font-weight-400">
+						{{season}}
+					</span>
+				</mat-radio-button>
+			</mat-radio-group>
+			<button mat-raised-button color="primary" (click)="submitQuestionEight(8)"
+				[disabled]="questionEightCorrect">Enviar</button>
+			<p class="color-green mt-10" *ngIf="questionEightCorrect">Resposta correta!</p>
+			<p class="color-red mt-10" *ngIf="questionEightTryAgain">Resposta Errada! Tente novamente</p>
+		</div>
 	</mat-tab>
 </mat-tab-group>
+
+<button (click)="logout()" class="icon-exit">
+	<mat-icon class="material-symbols-outlined">
+		logout
+	</mat-icon>
+</button>
